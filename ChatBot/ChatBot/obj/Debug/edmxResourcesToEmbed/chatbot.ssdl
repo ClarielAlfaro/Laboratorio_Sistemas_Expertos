@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="chatbot3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="pregunta">
+    <Key>
+      <PropertyRef Name="idpregunta" />
+    </Key>
+    <Property Name="idpregunta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="respuesta">
+    <Key>
+      <PropertyRef Name="idrespuesta" />
+    </Key>
+    <Property Name="idrespuesta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="idpregunta" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__respuesta__idpre__267ABA7A">
+    <End Role="pregunta" Type="Self.pregunta" Multiplicity="1" />
+    <End Role="respuesta" Type="Self.respuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pregunta">
+        <PropertyRef Name="idpregunta" />
+      </Principal>
+      <Dependent Role="respuesta">
+        <PropertyRef Name="idpregunta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="chatbot3ModelStoreContainer">
+    <EntitySet Name="pregunta" EntityType="Self.pregunta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="respuesta" EntityType="Self.respuesta" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__respuesta__idpre__267ABA7A" Association="Self.FK__respuesta__idpre__267ABA7A">
+      <End Role="pregunta" EntitySet="pregunta" />
+      <End Role="respuesta" EntitySet="respuesta" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

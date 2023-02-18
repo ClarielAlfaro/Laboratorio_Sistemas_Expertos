@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="chatbot3ModelStoreContainer" CdmEntityContainer="chatbot3Entities">
+    <EntitySetMapping Name="pregunta">
+      <EntityTypeMapping TypeName="chatbot3Model.pregunta">
+        <MappingFragment StoreEntitySet="pregunta">
+          <ScalarProperty Name="idpregunta" ColumnName="idpregunta" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="respuesta">
+      <EntityTypeMapping TypeName="chatbot3Model.respuesta">
+        <MappingFragment StoreEntitySet="respuesta">
+          <ScalarProperty Name="idrespuesta" ColumnName="idrespuesta" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idpregunta" ColumnName="idpregunta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="chatbot3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="pregunta">
+          <Key>
+            <PropertyRef Name="idpregunta" />
+          </Key>
+          <Property Name="idpregunta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="respuesta">
+          <Key>
+            <PropertyRef Name="idrespuesta" />
+          </Key>
+          <Property Name="idrespuesta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="idpregunta" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__respuesta__idpre__267ABA7A">
+          <End Role="pregunta" Type="Self.pregunta" Multiplicity="1" />
+          <End Role="respuesta" Type="Self.respuesta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pregunta">
+              <PropertyRef Name="idpregunta" />
+            </Principal>
+            <Dependent Role="respuesta">
+              <PropertyRef Name="idpregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="chatbot3ModelStoreContainer">
+          <EntitySet Name="pregunta" EntityType="Self.pregunta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="respuesta" EntityType="Self.respuesta" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__respuesta__idpre__267ABA7A" Association="Self.FK__respuesta__idpre__267ABA7A">
+            <End Role="pregunta" EntitySet="pregunta" />
+            <End Role="respuesta" EntitySet="respuesta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="chatbot3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="pregunta">
+          <Key>
+            <PropertyRef Name="idpregunta" />
+          </Key>
+          <Property Name="idpregunta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="respuesta" Relationship="Self.FK__respuesta__idpre__267ABA7A" FromRole="pregunta" ToRole="respuesta" />
+        </EntityType>
+        <EntityType Name="respuesta">
+          <Key>
+            <PropertyRef Name="idrespuesta" />
+          </Key>
+          <Property Name="idrespuesta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idpregunta" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="pregunta" Relationship="Self.FK__respuesta__idpre__267ABA7A" FromRole="respuesta" ToRole="pregunta" />
+        </EntityType>
+        <Association Name="FK__respuesta__idpre__267ABA7A">
+          <End Role="pregunta" Type="Self.pregunta" Multiplicity="1" />
+          <End Role="respuesta" Type="Self.respuesta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pregunta">
+              <PropertyRef Name="idpregunta" />
+            </Principal>
+            <Dependent Role="respuesta">
+              <PropertyRef Name="idpregunta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="chatbot3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="pregunta" EntityType="Self.pregunta" />
+          <EntitySet Name="respuesta" EntityType="Self.respuesta" />
+          <AssociationSet Name="FK__respuesta__idpre__267ABA7A" Association="Self.FK__respuesta__idpre__267ABA7A">
+            <End Role="pregunta" EntitySet="pregunta" />
+            <End Role="respuesta" EntitySet="respuesta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="chatbot3ModelStoreContainer" CdmEntityContainer="chatbot3Entities">
+          <EntitySetMapping Name="pregunta">
+            <EntityTypeMapping TypeName="chatbot3Model.pregunta">
+              <MappingFragment StoreEntitySet="pregunta">
+                <ScalarProperty Name="idpregunta" ColumnName="idpregunta" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="respuesta">
+            <EntityTypeMapping TypeName="chatbot3Model.respuesta">
+              <MappingFragment StoreEntitySet="respuesta">
+                <ScalarProperty Name="idrespuesta" ColumnName="idrespuesta" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idpregunta" ColumnName="idpregunta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

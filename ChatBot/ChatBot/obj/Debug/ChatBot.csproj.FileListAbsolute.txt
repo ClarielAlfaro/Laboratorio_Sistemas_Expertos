@@ -1,0 +1,16 @@
+C:\Users\clari\source\repos\ChatBot\ChatBot\bin\Debug\ChatBot.exe.config
+C:\Users\clari\source\repos\ChatBot\ChatBot\bin\Debug\ChatBot.exe
+C:\Users\clari\source\repos\ChatBot\ChatBot\bin\Debug\ChatBot.pdb
+C:\Users\clari\source\repos\ChatBot\ChatBot\obj\Debug\ChatBot.csproj.AssemblyReference.cache
+C:\Users\clari\source\repos\ChatBot\ChatBot\obj\Debug\ChatBot.csproj.SuggestedBindingRedirects.cache
+C:\Users\clari\source\repos\ChatBot\ChatBot\obj\Debug\ChatBot.Form1.resources
+C:\Users\clari\source\repos\ChatBot\ChatBot\obj\Debug\ChatBot.Properties.Resources.resources
+C:\Users\clari\source\repos\ChatBot\ChatBot\obj\Debug\ChatBot.csproj.GenerateResource.cache
+C:\Users\clari\source\repos\ChatBot\ChatBot\obj\Debug\ChatBot.csproj.CoreCompileInputs.cache
+C:\Users\clari\source\repos\ChatBot\ChatBot\obj\Debug\ChatBot.exe
+C:\Users\clari\source\repos\ChatBot\ChatBot\obj\Debug\ChatBot.pdb
+C:\Users\clari\source\repos\ChatBot\ChatBot\bin\Debug\EntityFramework.dll
+C:\Users\clari\source\repos\ChatBot\ChatBot\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\clari\source\repos\ChatBot\ChatBot\bin\Debug\EntityFramework.xml
+C:\Users\clari\source\repos\ChatBot\ChatBot\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\clari\source\repos\ChatBot\ChatBot\obj\Debug\ChatBot.csproj.CopyComplete
